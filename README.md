@@ -11,7 +11,7 @@ These instructions will get you a copy of the project up and running on your loc
 
 * Java JDK 8
 * [Serverless Framework](https://www.serverless.com/framework/docs/providers/aws/guide/installation/) - The framework used for deploying the application
-* [AWS CLI] (https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-configure.html) - setup aws cli
+* [AWS CLI](https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-configure.html) - setup aws cli
 
 ### Installing
 
@@ -42,13 +42,9 @@ serverless deploy --region us-east-1 --aws-profile YOUR_PROFILE - this command w
 
 
 
-## Contributing
-
-Please read [CONTRIBUTING.md](https://gist.github.com/PurpleBooth/b24679402957c63ec426) for details on our code of conduct, and the process for submitting pull requests to us.
-
 ## Authors
 
-* **Nikola Popovski** - *Initial work* - [PurpleBooth](https://github.com/popovski)
+* **Nikola Popovski** - *Initial work* - [Repository](https://github.com/popovski)
 
 See also the list of [contributors](https://github.com/your/project/contributors) who participated in this project.
 
