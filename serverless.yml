@@ -1,0 +1,57 @@
+service: spring-cloud-function-aws-iw
+
+provider:
+  name: aws
+  runtime: java8
+  region: us-east-1
+  memory: 1024
+  timeout: 20
+  iamRoleStatements:
+    - Effect: 'Allow'
+      Action:
+        - dynamodb:DescribeTable
+        - dynamodb:Query
+        - dynamodb:Scan
+        - dynamodb:GetItem
+        - dynamodb:PutItem
+        - dynamodb:UpdateItem
+        - dynamodb:DeleteItem
+      Resource: 
+        Fn::Join:
+          - ""
+          - - "arn:aws:dynamodb:::"
+            - "Ref" : "DynamoDBRes"
+            
+# jar file that will be uploaded and executed on AWS
+package:
+  artifact: target/iw.aws.lambda.blog-0.0.1-shaded.jar
+
+#define Lambda function
+functions:
+  createStudent:
+    handler: org.springframework.cloud.function.adapter.aws.SpringBootStreamHandler
+    events: # api gateway
+      - http:
+          path: student
+          method: post
+          cors: true
+    environment: # environment variables
+      FUNCTION_NAME: createStudent
+      
+# cloud formation
+resources:
+  Resources:
+    DynamoDBRes:
+      Type: AWS::DynamoDB::Table
+      Properties:
+        AttributeDefinitions:
+          - AttributeName: "uuid"
+            AttributeType: "S"
+        KeySchema:
+          - AttributeName: "uuid"
+            KeyType: "HASH"
+        ProvisionedThroughput:
+          ReadCapacityUnits: 1
+          WriteCapacityUnits: 1
+        TableName: student
+    
