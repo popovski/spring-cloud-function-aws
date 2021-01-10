@@ -15,7 +15,7 @@ These instructions will get you a copy of the project up and running on your loc
 
 ### Installing
 
-* Get the project from GIT "git clone popovski/spring-cloud-function-aws"
+* Get the project from GIT "git clone https://github.com/popovski/spring-cloud-function-aws.git"
 * Get amazon accesskey from your AWS account and set the value in project -> application.properties -> amazon.aws.accesskey
 * Get amazon secretkey from your AWS account and set the value in project -> application.properties -> amazon.aws.secretkey
 * Go to root of the project and run ".\mvnw clean package" - this will build the jar file
