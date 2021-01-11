@@ -28,9 +28,6 @@ public class FunctionConfiguration {
 
 	@Autowired
 	StudentService studentService;
-
-	@Autowired
-	ObjectMapper mapper;
 	
 	@Bean
 	public Function<APIGatewayProxyRequestEvent, APIGatewayProxyResponseEvent> createStudent() {
@@ -38,6 +35,7 @@ public class FunctionConfiguration {
 
 		return value -> {
 			try {
+				ObjectMapper mapper = new ObjectMapper();
 				StudentPojo studentPojo = Utils.studentMapper(value, mapper);
 				Student student = studentService.saveStudent(studentPojo);
 
@@ -53,6 +51,7 @@ public class FunctionConfiguration {
 	private APIGatewayProxyResponseEvent createResponseEvent(Student student) {
 		logger.info("Execute createResponseEvent method");
 		APIGatewayProxyResponseEvent responseEvent = new APIGatewayProxyResponseEvent();
+		ObjectMapper mapper = new ObjectMapper();
 		try {
 			responseEvent.setStatusCode(201);
 			responseEvent.setHeaders(createResultHeader());
