@@ -41,7 +41,7 @@ For deployment we will use serverless CLI
 
 ## Demo
 
-After the serverless deployment finish, as a response we will get POST rest end point. Use Postman to make a POST request using payload
+After the serverless deployment finish, as a response we will get POST rest end point of the AWS API Gateway. Use Postman to make a POST request using payload
 
 {
 	"firstName":"Nikola",
