@@ -24,7 +24,7 @@ provider:
             
 # jar file that will be uploaded and executed on AWS
 package:
-  artifact: target/iw.aws.lambda.blog-0.0.1-shaded.jar
+  artifact: target/iw-aws-lambda-blog-1-shaded.jar
 
 #define Lambda function
 functions:
