@@ -24,13 +24,14 @@ When the deployment process finish successfully as a result of the serverless de
 
 ## Running the tests
 
-.\mvnw clean package - command for running the junit tests
+.\mvnw test - command for running the junit tests
 
 Junit test will start the project locally and trigger the function
 
 ## Deployment
 
-serverless deploy --region us-east-1 --aws-profile YOUR_PROFILE - this command will start deploy the spring function on AWS, replace the YOUR_PROFILE with the "/.aws/credentials" file that is used for setup the AWS cli
+For deployment we will use serverless CLI
+* "serverless deploy --region us-east-1 --aws-profile YOUR_PROFILE" - this command will start deploy the spring function on AWS, replace the YOUR_PROFILE with the "/.aws/credentials" file that is used for setup the AWS cli
 
 ## Built With
 
@@ -40,7 +41,12 @@ serverless deploy --region us-east-1 --aws-profile YOUR_PROFILE - this command w
 
 ## Demo
 
+After the serverless deployment finish, as a response we will get POST rest end point. Use Postman to make a POST request using payload
 
+{
+	"firstName":"Nikola",
+	"lastName":"Popovski"
+}
 
 ## Authors
 
